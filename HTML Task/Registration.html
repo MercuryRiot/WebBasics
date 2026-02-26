@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 1em; background-color: #f5f5f5; }
+        .container { max-width: 600px; margin: 0 auto; background: white; padding: 2em; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        .header { text-align: center; margin-bottom: 2em; }
+        .header img { height: 150px; cursor: pointer; transition: 0.3s; }
+        .header img:hover { transform: scale(1.05); }
+        form { display: flex; flex-direction: column; }
+        label { font-weight: bold; margin-top: 1em; margin-bottom: 0.3em; }
+        input[type="text"], input[type="email"], input[type="tel"], input[type="date"], input[type="number"], input[type="password"], input[type="file"], select, textarea { width: 100%; padding: 0.5em; margin-bottom: 0.5em; border: 1px solid #ddd; border-radius: 3px; box-sizing: border-box; font-size: 1em; }
+        textarea { resize: vertical; }
+        .radio-group, .checkbox-group { margin: 0.5em 0; }
+        .radio-group label, .checkbox-group label { display: inline; margin-right: 1em; font-weight: normal; }
+        input[type="radio"], input[type="checkbox"] { margin-right: 0.3em; }
+        input[type="range"] { width: 100%; }
+        button { padding: 0.7em 2em; margin-top: 1.5em; background-color: #007bff; color: white; border: none; border-radius: 3px; cursor: pointer; font-size: 1em; }
+        button:hover { background-color: #0056b3; }
+        audio { width: 100%; margin-top: 1em; }
+        h1 { text-align: center; color: #333; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Event Registration</h1>
+        <a href="Event.html" target="_blank">
+            <img src="Riviera.png" alt="Event Logo">
+        </a>
+        <audio controls autoplay>
+            <source src="royaltyfree.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+    <form>
+
+        <label for="Name">Name:</label>
+        <input id="Name" type="text" placeholder="Enter your name" maxlength="50" required/>
+        
+        <label for="Email">Email:</label>
+        <input id="Email" type="email" placeholder="you@example.com" required/>
+
+        <label for="Number">Phone Number:</label>
+        <input id="Number" type="tel" placeholder="+91 98765 43210" required/>
+
+        <label for="Date">Date of Birth:</label>
+        <input id="Date" type="date" required/>
+
+        <label for="Age">Age:</label>
+        <input id="Age" type="number" min="13" max="100" required/>
+        
+        <label>Gender:</label>
+        <div class="radio-group">
+            <input id="male" type="radio" name="gender" value="male"/>
+            <label for="male">Male</label>
+            <input id="female" type="radio" name="gender" value="female"/>
+            <label for="female">Female</label>
+        </div>
+
+        <label for="Upload">Upload Picture:</label>
+        <input id="Upload" type="file" accept=".jpg,.jpeg,.png"/>
+        <img id="preview" style="max-width: 150px; max-height: 150px; margin-top: 0.5em; border-radius: 3px; display: none;"/>
+
+        <label for="Range">Expected Salary Range:</label>
+        <input id="Range" type="range" min="0" max="100"/>
+
+        <label for="City">City:</label>
+        <select id="City" name="City">
+            <option value="">-- Select City --</option>
+            <optgroup label="Bihar">
+                <option value="Patna">Patna</option>
+                <option value="Gaya">Gaya</option>
+                <option value="Muzaffarpur">Muzaffarpur</option>
+            </optgroup>
+            <optgroup label="West Bengal">
+                <option value="Haldia" selected>Haldia</option>
+                <option value="Kolkata">Kolkata</option>
+                <option value="Digha">Digha</option>
+            </optgroup>
+        </select>
+
+        <label>Food:</label>
+        <div class="checkbox-group">
+            <input type="checkbox" id="veg" name="food" value="Veg" checked/>
+            <label for="veg">Veg</label><br/>
+            <input type="checkbox" id="Dairy" name="food" value="Dairy"/>
+            <label for="Dairy">Dairy</label><br/>
+            <input type="checkbox" id="Meat/Eggs" name="food" value="Meat/Eggs"/>
+            <label for="Meat/Eggs">Meat/Eggs</label>
+        </div>
+
+        <label for="Message">Suggestions:</label>
+        <textarea id="Message" rows="4" placeholder="Enter your suggestions here..."></textarea>
+        
+
+
+        <label for="Password">Password:</label>
+        <input id="Password" type="password" placeholder="Enter your password" required/>
+        
+        <button type="submit">Submit</button>
+    </form>
+</div>
+<script>
+    const uploadInput = document.getElementById('Upload');
+    const preview = document.getElementById('preview');
+    
+    uploadInput.addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                preview.src = event.target.result;
+                preview.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+</script>
+</body>
+</html>
