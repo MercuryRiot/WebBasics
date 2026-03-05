@@ -1,5 +1,5 @@
 export interface Resident {
-    id: number;
+    id: string;
     name: string;
     age: number;
     phone: string;
