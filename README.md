@@ -29,3 +29,4 @@
 ## Final Project
 
 - **Hostel Management System** - Using HTML, CSS, DOM, and TypeScript (In Progress)
+- **Expense Tracker** - Using HTML, CSS, DOM, and TypeScript
